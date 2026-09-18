@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -52,18 +53,20 @@
 
             font-size: 80px;
 
-            margin-bottom: 25px;
+            margin-bottom: 20px;
 
         }
 
 
-        #passwordScreen p {
+        .frase {
 
             color: #ffffff;
 
             font-size: 18px;
 
             margin-bottom: 25px;
+
+            max-width: 400px;
 
         }
 
@@ -134,6 +137,8 @@
 
             margin-top: 10px;
 
+            line-height: 1.6;
+
         }
 
 
@@ -166,7 +171,6 @@
             transition: opacity 2s ease;
 
             padding: 20px;
-
         }
 
 
@@ -186,7 +190,7 @@
 
 
         /* =========================
-           BOTÓN DE LA CARTA
+           BOTÓN ABRIR
            ========================= */
 
         .boton-carta {
@@ -195,7 +199,7 @@
 
             padding: 13px 30px;
 
-            background: #e91e63;
+            background: #e53935;
 
             color: white;
 
@@ -212,7 +216,7 @@
 
         .boton-carta:hover {
 
-            background: #c2185b;
+            background: #b71c1c;
 
             transform: scale(1.08);
 
@@ -228,6 +232,13 @@
             input {
 
                 width: 220px;
+
+            }
+
+
+            .frase {
+
+                font-size: 16px;
 
             }
 
@@ -258,6 +269,11 @@
 
         <div class="rana">
             🐸
+        </div>
+
+
+        <div class="frase">
+            I wanna love like you made me feel when were...
         </div>
 
 
@@ -301,7 +317,7 @@
             href="carta.html"
             class="boton-carta"
         >
-            💌 Abrir mi carta
+            ABRIR
         </a>
 
     </div>
@@ -320,7 +336,7 @@
                 document.getElementById("password").value;
 
 
-            const passwordCorrecta = "amor";
+            const passwordCorrecta = "18";
 
 
             if (password === passwordCorrecta) {
@@ -361,8 +377,9 @@
 
             } else {
 
-                document.getElementById("error").textContent =
-                    "Contraseña incorrecta ❤️";
+                document.getElementById("error").innerHTML =
+                    "Contraseña equivocada<br>" +
+                    "PISTA: Intenta con números";
 
             }
 
