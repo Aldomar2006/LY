@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -8,7 +7,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Para ti ❤️</title>
+    <title>🐸</title>
 
     <style>
 
@@ -23,7 +22,7 @@
 
             font-family: Georgia, serif;
 
-            background: #fce4ec;
+            background: #f28c28;
 
             display: flex;
 
@@ -48,23 +47,26 @@
             padding: 20px;
         }
 
-        #passwordScreen h1 {
 
-            color: #ad1457;
+        .rana {
 
-            font-size: 42px;
+            font-size: 80px;
 
-            margin-bottom: 15px;
+            margin-bottom: 25px;
+
         }
+
 
         #passwordScreen p {
 
-            color: #6d3a4b;
+            color: #ffffff;
 
             font-size: 18px;
 
             margin-bottom: 25px;
+
         }
+
 
         input {
 
@@ -72,7 +74,7 @@
 
             padding: 14px;
 
-            border: 2px solid #e91e63;
+            border: 2px solid #ffffff;
 
             border-radius: 25px;
 
@@ -81,12 +83,16 @@
             font-size: 16px;
 
             outline: none;
+
         }
+
 
         input:focus {
 
-            border-color: #ad1457;
+            border-color: #333333;
+
         }
+
 
         button {
 
@@ -100,31 +106,34 @@
 
             border-radius: 25px;
 
-            background: #e91e63;
+            background: #ffffff;
 
-            color: white;
+            color: #e67e22;
 
             font-size: 16px;
 
             cursor: pointer;
 
             transition: 0.3s;
+
         }
+
 
         button:hover {
 
-            background: #c2185b;
-
             transform: scale(1.08);
+
         }
+
 
         #error {
 
-            color: #c62828;
+            color: #ffffff;
 
             font-size: 15px;
 
             margin-top: 10px;
+
         }
 
 
@@ -157,7 +166,9 @@
             transition: opacity 2s ease;
 
             padding: 20px;
+
         }
+
 
         #videoScreen video {
 
@@ -170,6 +181,7 @@
             border-radius: 15px;
 
             box-shadow: 0 0 40px rgba(255,255,255,0.2);
+
         }
 
 
@@ -194,25 +206,15 @@
             font-size: 16px;
 
             transition: 0.3s;
+
         }
+
 
         .boton-carta:hover {
 
             background: #c2185b;
 
             transform: scale(1.08);
-        }
-
-
-        /* =========================
-           CORAZÓN
-           ========================= */
-
-        .corazon {
-
-            font-size: 50px;
-
-            margin-bottom: 10px;
 
         }
 
@@ -223,23 +225,12 @@
 
         @media (max-width: 600px) {
 
-            #passwordScreen h1 {
-
-                font-size: 32px;
-
-            }
-
-            #passwordScreen p {
-
-                font-size: 16px;
-
-            }
-
             input {
 
                 width: 220px;
 
             }
+
 
             #videoScreen video {
 
@@ -265,17 +256,10 @@
 
     <div id="passwordScreen">
 
-        <div class="corazon">
-            ❤️
+        <div class="rana">
+            🐸
         </div>
 
-        <h1>
-            Para ti
-        </h1>
-
-        <p>
-            Hay algo que quiero enseñarte...
-        </p>
 
         <input
             type="password"
@@ -283,9 +267,11 @@
             placeholder="Contraseña"
         >
 
+
         <button onclick="entrar()">
             Entrar
         </button>
+
 
         <p id="error"></p>
 
@@ -334,15 +320,10 @@
                 document.getElementById("password").value;
 
 
-            // =========================
-            // CAMBIA AQUÍ LA CONTRASEÑA
-            // =========================
-
             const passwordCorrecta = "amor";
 
 
             if (password === passwordCorrecta) {
-
 
                 const pantalla =
                     document.getElementById("passwordScreen");
@@ -356,19 +337,13 @@
                     document.getElementById("video");
 
 
-                // Desaparece la pantalla
                 pantalla.style.opacity = "0";
 
-
-                // Esperamos a que termine
-                // la animación
 
                 setTimeout(function() {
 
                     pantalla.style.display = "none";
 
-
-                    // Mostramos el video
 
                     videoScreen.style.visibility =
                         "visible";
@@ -378,9 +353,6 @@
                         "1";
 
 
-                    // Intentar reproducir
-                    // automáticamente
-
                     video.play();
 
 
@@ -389,9 +361,8 @@
 
             } else {
 
-
                 document.getElementById("error").textContent =
-                    "Esa no es la contraseña ❤️";
+                    "Contraseña incorrecta ❤️";
 
             }
 
@@ -403,4 +374,3 @@
 </body>
 
 </html>
-```
