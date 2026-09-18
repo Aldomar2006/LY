@@ -1,0 +1,406 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para ti ❤️</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+
+            font-family: Georgia, serif;
+
+            background: #fce4ec;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            overflow: hidden;
+        }
+
+
+        /* =========================
+           PANTALLA DE CONTRASEÑA
+           ========================= */
+
+        #passwordScreen {
+
+            text-align: center;
+
+            transition: opacity 1.5s ease;
+
+            padding: 20px;
+        }
+
+        #passwordScreen h1 {
+
+            color: #ad1457;
+
+            font-size: 42px;
+
+            margin-bottom: 15px;
+        }
+
+        #passwordScreen p {
+
+            color: #6d3a4b;
+
+            font-size: 18px;
+
+            margin-bottom: 25px;
+        }
+
+        input {
+
+            width: 260px;
+
+            padding: 14px;
+
+            border: 2px solid #e91e63;
+
+            border-radius: 25px;
+
+            text-align: center;
+
+            font-size: 16px;
+
+            outline: none;
+        }
+
+        input:focus {
+
+            border-color: #ad1457;
+        }
+
+        button {
+
+            display: block;
+
+            margin: 20px auto;
+
+            padding: 13px 30px;
+
+            border: none;
+
+            border-radius: 25px;
+
+            background: #e91e63;
+
+            color: white;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+
+            background: #c2185b;
+
+            transform: scale(1.08);
+        }
+
+        #error {
+
+            color: #c62828;
+
+            font-size: 15px;
+
+            margin-top: 10px;
+        }
+
+
+        /* =========================
+           PANTALLA DEL VIDEO
+           ========================= */
+
+        #videoScreen {
+
+            position: absolute;
+
+            width: 100%;
+
+            height: 100%;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            background: #000;
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            transition: opacity 2s ease;
+
+            padding: 20px;
+        }
+
+        #videoScreen video {
+
+            width: 90%;
+
+            max-width: 1000px;
+
+            max-height: 75vh;
+
+            border-radius: 15px;
+
+            box-shadow: 0 0 40px rgba(255,255,255,0.2);
+        }
+
+
+        /* =========================
+           BOTÓN DE LA CARTA
+           ========================= */
+
+        .boton-carta {
+
+            margin-top: 25px;
+
+            padding: 13px 30px;
+
+            background: #e91e63;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 25px;
+
+            font-size: 16px;
+
+            transition: 0.3s;
+        }
+
+        .boton-carta:hover {
+
+            background: #c2185b;
+
+            transform: scale(1.08);
+        }
+
+
+        /* =========================
+           CORAZÓN
+           ========================= */
+
+        .corazon {
+
+            font-size: 50px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        /* =========================
+           CELULAR
+           ========================= */
+
+        @media (max-width: 600px) {
+
+            #passwordScreen h1 {
+
+                font-size: 32px;
+
+            }
+
+            #passwordScreen p {
+
+                font-size: 16px;
+
+            }
+
+            input {
+
+                width: 220px;
+
+            }
+
+            #videoScreen video {
+
+                width: 100%;
+
+                max-height: 70vh;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         PANTALLA DE CONTRASEÑA
+         ========================= -->
+
+    <div id="passwordScreen">
+
+        <div class="corazon">
+            ❤️
+        </div>
+
+        <h1>
+            Para ti
+        </h1>
+
+        <p>
+            Hay algo que quiero enseñarte...
+        </p>
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Contraseña"
+        >
+
+        <button onclick="entrar()">
+            Entrar
+        </button>
+
+        <p id="error"></p>
+
+    </div>
+
+
+
+    <!-- =========================
+         PANTALLA DEL VIDEO
+         ========================= -->
+
+    <div id="videoScreen">
+
+        <video id="video" controls>
+
+            <source
+                src="video.mp4"
+                type="video/mp4"
+            >
+
+            Tu navegador no puede reproducir este video.
+
+        </video>
+
+
+        <a
+            href="carta.html"
+            class="boton-carta"
+        >
+            💌 Abrir mi carta
+        </a>
+
+    </div>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+         ========================= -->
+
+    <script>
+
+        function entrar() {
+
+            const password =
+                document.getElementById("password").value;
+
+
+            // =========================
+            // CAMBIA AQUÍ LA CONTRASEÑA
+            // =========================
+
+            const passwordCorrecta = "amor";
+
+
+            if (password === passwordCorrecta) {
+
+
+                const pantalla =
+                    document.getElementById("passwordScreen");
+
+
+                const videoScreen =
+                    document.getElementById("videoScreen");
+
+
+                const video =
+                    document.getElementById("video");
+
+
+                // Desaparece la pantalla
+                pantalla.style.opacity = "0";
+
+
+                // Esperamos a que termine
+                // la animación
+
+                setTimeout(function() {
+
+                    pantalla.style.display = "none";
+
+
+                    // Mostramos el video
+
+                    videoScreen.style.visibility =
+                        "visible";
+
+
+                    videoScreen.style.opacity =
+                        "1";
+
+
+                    // Intentar reproducir
+                    // automáticamente
+
+                    video.play();
+
+
+                }, 1500);
+
+
+            } else {
+
+
+                document.getElementById("error").textContent =
+                    "Esa no es la contraseña ❤️";
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
+```
