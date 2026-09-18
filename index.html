@@ -5,13 +5,9 @@
 
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>🐸</title>
-
 
     <style>
 
@@ -21,9 +17,7 @@
             padding: 0;
         }
 
-
         body {
-
             min-height: 100vh;
 
             font-family: Georgia, serif;
@@ -59,6 +53,7 @@
             font-size: 80px;
 
             margin-bottom: 20px;
+
         }
 
 
@@ -71,6 +66,7 @@
             margin-bottom: 25px;
 
             max-width: 400px;
+
         }
 
 
@@ -89,12 +85,14 @@
             font-size: 16px;
 
             outline: none;
+
         }
 
 
         input:focus {
 
             border-color: #333333;
+
         }
 
 
@@ -119,12 +117,14 @@
             cursor: pointer;
 
             transition: 0.3s;
+
         }
 
 
         button:hover {
 
             transform: scale(1.08);
+
         }
 
 
@@ -137,6 +137,7 @@
             margin-top: 10px;
 
             line-height: 1.6;
+
         }
 
 
@@ -172,22 +173,6 @@
         }
 
 
-        /* =========================
-           CONTENEDOR DEL VIDEO
-           ========================= */
-
-        .video-container {
-
-            position: relative;
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-        }
-
-
         #videoScreen video {
 
             width: 90%;
@@ -198,11 +183,8 @@
 
             border-radius: 15px;
 
-            box-shadow:
-                0 0 40px
-                rgba(255,255,255,0.2);
+            box-shadow: 0 0 40px rgba(255,255,255,0.2);
 
-            display: block;
         }
 
 
@@ -212,17 +194,9 @@
 
         .boton-carta {
 
-            position: absolute;
+            margin-top: 25px;
 
-            bottom: -30px;
-
-            left: 50%;
-
-            transform:
-                translateX(-50%)
-                translateY(45px);
-
-            padding: 13px 35px;
+            padding: 13px 30px;
 
             background: #e53935;
 
@@ -234,25 +208,8 @@
 
             font-size: 16px;
 
-            opacity: 0;
+            transition: 0.3s;
 
-            transition:
-                opacity 1s ease,
-                transform 1s ease;
-
-            z-index: 10;
-        }
-
-
-        /* Cuando termina el video */
-
-        .boton-carta.mostrar {
-
-            opacity: 1;
-
-            transform:
-                translateX(-50%)
-                translateY(0);
         }
 
 
@@ -260,10 +217,8 @@
 
             background: #b71c1c;
 
-            transform:
-                translateX(-50%)
-                translateY(-5px)
-                scale(1.08);
+            transform: scale(1.08);
+
         }
 
 
@@ -276,12 +231,14 @@
             input {
 
                 width: 220px;
+
             }
 
 
             .frase {
 
                 font-size: 16px;
+
             }
 
 
@@ -290,14 +247,7 @@
                 width: 100%;
 
                 max-height: 70vh;
-            }
 
-
-            .boton-carta {
-
-                bottom: -25px;
-
-                padding: 12px 30px;
             }
 
         }
@@ -350,32 +300,24 @@
 
     <div id="videoScreen">
 
+        <video id="video" controls>
 
-        <div class="video-container">
-
-
-            <video id="video" controls>
-
-                <source
-                    src="video.mp4"
-                    type="video/mp4"
-                >
-
-                Tu navegador no puede reproducir este video.
-
-            </video>
-
-
-            <a
-                href="carta.html"
-                class="boton-carta"
-                id="botonCarta"
+            <source
+                src="video.mp4"
+                type="video/mp4"
             >
-                ABRIR
-            </a>
+
+            Tu navegador no puede reproducir este video.
+
+        </video>
 
 
-        </div>
+        <a
+            href="carta.html"
+            class="boton-carta"
+        >
+            ABRIR
+        </a>
 
     </div>
 
@@ -431,10 +373,8 @@
 
                 }, 1500);
 
-            }
 
-
-            else {
+            } else {
 
                 document.getElementById("error").innerHTML =
                     "Contraseña equivocada<br>" +
@@ -443,25 +383,6 @@
             }
 
         }
-
-
-
-        /* =========================
-           CUANDO TERMINA EL VIDEO
-           ========================= */
-
-        document
-            .getElementById("video")
-            .addEventListener("ended", function() {
-
-
-                const boton =
-                    document.getElementById("botonCarta");
-
-
-                boton.classList.add("mostrar");
-
-            });
 
     </script>
 
