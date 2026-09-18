@@ -1,0 +1,237 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Mi carta para ti ❤️</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+
+            margin: 0;
+
+            padding: 0;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background: #fce4ec;
+
+            font-family: Georgia, serif;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            padding: 30px;
+
+            color: #4a1f2d;
+        }
+
+
+        .carta {
+
+            width: 100%;
+
+            max-width: 700px;
+
+            background: #fffafc;
+
+            padding: 50px;
+
+            border-radius: 15px;
+
+            box-shadow:
+                0 10px 40px
+                rgba(0,0,0,0.15);
+
+            line-height: 1.8;
+
+            animation: aparecer 1.5s ease;
+        }
+
+
+        .corazon {
+
+            text-align: center;
+
+            font-size: 50px;
+
+            margin-bottom: 15px;
+        }
+
+
+        h1 {
+
+            text-align: center;
+
+            color: #ad1457;
+
+            margin-bottom: 30px;
+
+            font-size: 38px;
+        }
+
+
+        p {
+
+            font-size: 18px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .firma {
+
+            text-align: right;
+
+            margin-top: 40px;
+
+            color: #ad1457;
+
+            font-size: 21px;
+        }
+
+
+        @keyframes aparecer {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(30px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        /* CELULAR */
+
+        @media (max-width: 600px) {
+
+            body {
+
+                padding: 15px;
+            }
+
+
+            .carta {
+
+                padding: 30px 22px;
+            }
+
+
+            h1 {
+
+                font-size: 30px;
+            }
+
+
+            p {
+
+                font-size: 17px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="carta">
+
+
+        <div class="corazon">
+            💌
+        </div>
+
+
+        <h1>
+            Para ti ❤️
+        </h1>
+
+
+        <!-- =========================
+             ESCRIBE AQUÍ TU CARTA
+             ========================= -->
+
+
+        <p>
+            Mi amor:
+        </p>
+
+
+        <p>
+            Aquí comenzará la carta que quiero
+            escribirte.
+        </p>
+
+
+        <p>
+            Quiero que este pequeño detalle
+            sea una forma de recordarte lo
+            especial que eres para mí.
+        </p>
+
+
+        <p>
+            Gracias por todos los momentos,
+            las risas y todos esos pequeños
+            recuerdos que hemos construido
+            juntos.
+        </p>
+
+
+        <p>
+            Espero que cuando leas esto
+            puedas sentir todo el cariño
+            con el que hice esta página
+            especialmente para ti.
+        </p>
+
+
+        <p class="firma">
+
+            Con todo mi amor ❤️
+
+        </p>
+
+
+    </div>
+
+
+</body>
+
+</html>
+```
