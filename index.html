@@ -64,7 +64,7 @@
 
         .frase {
 
-            color: #ffffff;
+            color: white;
 
             font-size: 18px;
 
@@ -80,7 +80,7 @@
 
             padding: 14px;
 
-            border: 2px solid #ffffff;
+            border: 2px solid white;
 
             border-radius: 25px;
 
@@ -94,7 +94,7 @@
 
         input:focus {
 
-            border-color: #333333;
+            border-color: #333;
         }
 
 
@@ -110,7 +110,7 @@
 
             border-radius: 25px;
 
-            background: #ffffff;
+            background: white;
 
             color: #e67e22;
 
@@ -130,7 +130,7 @@
 
         #error {
 
-            color: #ffffff;
+            color: white;
 
             font-size: 15px;
 
@@ -154,13 +154,11 @@
 
             display: flex;
 
-            flex-direction: column;
-
             justify-content: center;
 
             align-items: center;
 
-            background: #000;
+            background: black;
 
             opacity: 0;
 
@@ -173,24 +171,28 @@
 
 
         /* =========================
-           CONTENEDOR DEL VIDEO
+           CONTENEDOR
            ========================= */
 
         .video-container {
 
             position: relative;
 
-            display: flex;
+            display: inline-block;
 
-            justify-content: center;
+            overflow: visible;
 
-            align-items: center;
+            text-align: center;
         }
 
 
-        #videoScreen video {
+        /* =========================
+           VIDEO
+           ========================= */
 
-            width: 90%;
+        #video {
+
+            width: 90vw;
 
             max-width: 1000px;
 
@@ -214,13 +216,13 @@
 
             position: absolute;
 
-            bottom: -30px;
-
             left: 50%;
+
+            top: 100%;
 
             transform:
                 translateX(-50%)
-                translateY(45px);
+                translateY(-18px);
 
             padding: 13px 35px;
 
@@ -234,27 +236,35 @@
 
             font-size: 16px;
 
-            opacity: 0;
+            white-space: nowrap;
+
+            opacity: 0.85;
 
             transition:
-                opacity 1s ease,
-                transform 1s ease;
+                transform 0.8s ease,
+                opacity 0.8s ease;
 
-            z-index: 10;
+            z-index: 5;
         }
 
 
-        /* Cuando termina el video */
+        /* =========================
+           CUANDO TERMINA EL VIDEO
+           ========================= */
 
         .boton-carta.mostrar {
 
-            opacity: 1;
-
             transform:
                 translateX(-50%)
-                translateY(0);
+                translateY(15px);
+
+            opacity: 1;
         }
 
+
+        /* =========================
+           HOVER
+           ========================= */
 
         .boton-carta:hover {
 
@@ -262,7 +272,7 @@
 
             transform:
                 translateX(-50%)
-                translateY(-5px)
+                translateY(10px)
                 scale(1.08);
         }
 
@@ -273,19 +283,7 @@
 
         @media (max-width: 600px) {
 
-            input {
-
-                width: 220px;
-            }
-
-
-            .frase {
-
-                font-size: 16px;
-            }
-
-
-            #videoScreen video {
+            #video {
 
                 width: 100%;
 
@@ -294,8 +292,6 @@
 
 
             .boton-carta {
-
-                bottom: -25px;
 
                 padding: 12px 30px;
             }
@@ -311,7 +307,7 @@
 
 
     <!-- =========================
-         PANTALLA DE CONTRASEÑA
+         CONTRASEÑA
          ========================= -->
 
     <div id="passwordScreen">
@@ -345,7 +341,7 @@
 
 
     <!-- =========================
-         PANTALLA DEL VIDEO
+         VIDEO
          ========================= -->
 
     <div id="videoScreen">
@@ -417,17 +413,13 @@
 
                     pantalla.style.display = "none";
 
-
                     videoScreen.style.visibility =
                         "visible";
-
 
                     videoScreen.style.opacity =
                         "1";
 
-
                     video.play();
-
 
                 }, 1500);
 
@@ -445,23 +437,23 @@
         }
 
 
-
         /* =========================
-           CUANDO TERMINA EL VIDEO
+           DETECTAR FIN DEL VIDEO
            ========================= */
 
-        document
-            .getElementById("video")
-            .addEventListener("ended", function() {
+        const video =
+            document.getElementById("video");
 
 
-                const boton =
-                    document.getElementById("botonCarta");
+        const boton =
+            document.getElementById("botonCarta");
 
 
-                boton.classList.add("mostrar");
+        video.addEventListener("ended", function() {
 
-            });
+            boton.classList.add("mostrar");
+
+        });
 
     </script>
 
